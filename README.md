@@ -2,7 +2,7 @@
 
 UPDATE: Separate demos for non-local external dependencies/protos added:
 * [simpleproto](simpleproto/README.md) - a demo with just a proto that builds, but `go mod tidy` reports errors.
-* [protoexp](protoextp/README.md) - a demo that tries to use `github.com/golang/protobuf` but won't build.
+* [protoexp](protoexp/README.md) - a demo that tries to use `github.com/golang/protobuf` but won't build.
 
 I've been trying to migrate my existing messy Golang code library from plain bazel to use bzlmod.
 
