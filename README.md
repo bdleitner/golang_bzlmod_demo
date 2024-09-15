@@ -1,5 +1,9 @@
 # BzlMod + Golang Demo
 
+UPDATE: Separate demos for non-local external dependencies/protos added:
+* [simpleproto](simpleproto/README.md) - a demo with just a proto that builds, but `go mod tidy` reports errors.
+* [protoexp](protoextp/README.md) - a demo that tries to use `github.com/golang/protobuf` but won't build.
+
 I've been trying to migrate my existing messy Golang code library from plain bazel to use bzlmod.
 
 I found the [rules_go](https://github.com/bazelbuild/rules_go/blob/master/docs/go/core/bzlmod.md) bzlmod reference and was trying to use that as a tutorial. I don' thave much experience with modules using `go.mod`, so at first I was avoiding it and just using my local regsitry to point at the different workspaces.  This worked mostly\* ok until I finally had some external dependencies.

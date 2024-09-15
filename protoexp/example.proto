@@ -1,0 +1,8 @@
+syntax = "proto3";
+
+package bdl.go.protoexp;
+option go_package = "bdl.com/demos/protoexp/expb";
+
+message Example {
+  string value = 1;
+}
