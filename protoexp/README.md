@@ -75,8 +75,9 @@ Let's see what happens with the tooling:
 
    Fix the use_repo calls by running 'bazel mod tidy'.
    ```
-   The raw `bazel mod tidy` gives the same error... telling me to call `bazel mod tody`.
-6. And, finally, `bazel build ...` gives the error:
+   The raw `bazel mod tidy` gives the same error... telling me to call `bazel mod tody`, and it 
+   also removes the `use_repo` line from `MODULE.bazel`.
+6. Without that line, `bazel build ...` gives the error:
     ```
     PS C:\projects\go\demos\protoexp> bazel build ...                                               
     ERROR: no such package '@@[unknown repo 'com_github_golang_protobuf' requested from @@] //proto': The repository '@@[unknown repo 'com_github_golang_protobuf' requested from @@]' could not be resolved: No repository visible as '@com_github_golang_protobuf' from main repository
@@ -86,6 +87,12 @@ Let's see what happens with the tooling:
     INFO: 1 process: 1 internal.                                                                     
     ERROR: Build did NOT complete successfully   
     ```
+    and with that line manually readded, it finally builds. I still got the warning about 
+   `Imported, but reported as indirect dependencies by the extension:`, so removing the 
+   `// indirect` commend from the `go.mod` file it then builds normally.
    
-So I believe I have followed the instructions from the [`rules_go` docs](https://github.com/bazelbuild/rules_go/blob/master/docs/go/core/bzlmod.md)
-but I can't get any external dependencies to resolve.  What am I missing?
+   But `bazel mod tidy` still removes that line and `bazel run @rules_go/go -- mod tidy` doesn't 
+   help.
+ 
+So it looks like maybe I can get external dependencies to work, but not via the 
+recommended tooling.

@@ -8,7 +8,6 @@ import (
 func value(p *expb.Example) string {
   return p.GetValue()
 }
-}
 
 func NewExample() *expb.Example {
   p := &expb.Example{}

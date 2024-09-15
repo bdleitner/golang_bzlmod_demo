@@ -1,5 +1,5 @@
 module(
-    name = "com_bdl_greetings",
+    name = "com_bdl_greetings", # I've also tried "bdl.com/greetings"
     compatibility_level = 0,
     version = "head",
 )
