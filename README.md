@@ -7,6 +7,9 @@ Each subfolder here is its own project (in my local system, I have separate Gola
 * [`hello`](hello/README.md) - a module that has an external, local depdency on `greetings`
 * [`simpleproto`](simpleproto/README.md) - A simple module that uses `go_proto_library` but doesn't depend on the golang proto package and its external dependency.
 * [`protoexp`](protoexp/README.md) - An example that does depend on the external proto package.
+* [`cgo`](cgo/README.md) - An example of `bazel build` not being able to find symbols in a library that uses cgo.
+* [`cgoimport`](cgoimport/README.md) - An example of not being able to use an external library that uses cgo due to "undefined symbols." Note: I found this issue before trying the `cgo` demo directly and this was the inspiration for that.
+
 I've been trying to migrate my existing messy Golang code library from plain bazel to use bzlmod.
 
 I found the [rules_go](https://github.com/bazelbuild/rules_go/blob/master/docs/go/core/bzlmod.md) bzlmod reference and was trying to use that as a tutorial. I don' thave much experience with modules using `go.mod`, so at first I was avoiding it and just using my local regsitry to point at the different workspaces.  This worked mostly\* ok until I finally had some external dependencies.
