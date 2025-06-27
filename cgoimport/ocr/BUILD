@@ -9,7 +9,6 @@ go_library(
         "@com_github_otiai10_gosseract_v2//:gosseract",
     ],
     cgo = True,
-
 )
 
 go_binary(
